@@ -1,6 +1,6 @@
 import { Undoable } from ".."
 
-describe("When test undo buffer", () => {
+describe("When no initial state", () => {
     it("initial state should be empty", () => {
         const undoable = new Undoable<string>();
         expect(undoable.value).toBeUndefined();
@@ -9,7 +9,9 @@ describe("When test undo buffer", () => {
         expect(undoable.undo()).toBeUndefined();
         expect(undoable.redo()).toBeUndefined();
     });
+});
 
+describe("When initial state set to string", () => {
     it("should have 1 item after pushing a value", () => {
         const undoable = new Undoable("");
         undoable.value = "a";
@@ -34,7 +36,7 @@ describe("When test undo buffer", () => {
         expect(undoable.undo()).toBe("");
     });
 
-    it("should return item when redo with 2 item2", () => {
+    it("should return item when redo with 2 items", () => {
         const undoable = new Undoable("");
         let s = "a";
         undoable.value = s;

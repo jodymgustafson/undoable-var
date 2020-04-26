@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const __1 = require("..");
-describe("When test undo buffer", () => {
+describe("When no initial state", () => {
     it("initial state should be empty", () => {
         const undoable = new __1.Undoable();
         expect(undoable.value).toBeUndefined();
@@ -10,6 +10,8 @@ describe("When test undo buffer", () => {
         expect(undoable.undo()).toBeUndefined();
         expect(undoable.redo()).toBeUndefined();
     });
+});
+describe("When initial state set to string", () => {
     it("should have 1 item after pushing a value", () => {
         const undoable = new __1.Undoable("");
         undoable.value = "a";
@@ -32,7 +34,7 @@ describe("When test undo buffer", () => {
         expect(undoable.canUndo).toBe(true);
         expect(undoable.undo()).toBe("");
     });
-    it("should return item when redo with 2 item2", () => {
+    it("should return item when redo with 2 items", () => {
         const undoable = new __1.Undoable("");
         let s = "a";
         undoable.value = s;
