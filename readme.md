@@ -38,8 +38,6 @@ Check if redo is possible.
 
 `undoableString.canRedo // => false`
 
-`let undoableNumber: Undoable<number>;`
-
 ## Usage with non-primitive values
 
 When using non-primitive values such as objects or arrays be careful that you don't set the value then change it's properties or elements later. The value stored in this class is only the pointer. Therefore every time you set the value you must clone the object or array.
@@ -48,3 +46,5 @@ When using non-primitive values such as objects or arrays be careful that you do
 
 This package includes the type definition file.
 The Undoable class is generic so you can specify a type, or it will assume the type of the initial value.
+
+`let undoableNumber: Undoable<number>;`
