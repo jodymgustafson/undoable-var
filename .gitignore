@@ -1,0 +1,4 @@
+*.tgz
+*.js.map
+
+node_modules

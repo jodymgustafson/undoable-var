@@ -1,0 +1,25 @@
+{
+  "name": "undoable-var",
+  "version": "1.0.0",
+  "description": "A variable with support for undo/redo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jodymgustafson/undoable-var"
+  },
+  "keywords": [
+    "undo",
+    "redo",
+    "history"
+  ],
+  "author": "JM Gustafson",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jasmine": "^3.5.10",
+    "jasmine": "^3.5.0"
+  }
+}
