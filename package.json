@@ -1,7 +1,7 @@
 {
-  "name": "undoable-var",
+  "name": "undoable-wrapper",
   "version": "1.0.0",
-  "description": "A variable with support for undo/redo",
+  "description": "A wrapper for a variable with support for undo/redo",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",

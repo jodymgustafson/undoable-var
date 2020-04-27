@@ -1,6 +1,7 @@
-# Undoable Variable
+# Undoable Wrapper
 
-Implements a variable with support for undo/redo.
+Implements a wrapper for a variable with support for undo/redo.
+Why? Because I needed undo/redo support and couldn't find one that suited my needs or had adequate documentation.
 
 ## Install
 
@@ -8,39 +9,39 @@ Implements a variable with support for undo/redo.
 
 ## Usage
 
-This package contains one class called Undoable.
+This package contains one class called `Undoable`.
 
 Create an instance with an initial value.
 
 `const undoableString = new Undoable("")`
 
-Set it to a new value.
+Set it to a new value using the `value` property.
 
 `undoableString.value = "a"`
 
-You can always get the current value using the `value` property.
+You can always get the current value using the `value` property too.
 
 `undoableString.value // => "a"`
 
-Undo the last value set. Undo returns the new value.
+Undo the last value set using `undo()`. Undo returns the new value.
 
 `undoableString.undo() // => ""`
 
-Redo the value. Redo also returns the new value.
+Redo the last undo using `redo()`. Redo also returns the new value.
 
 `undoableString.redo() // => "a"`
 
-Check if undo is possible.
+Check if undo is possible using `canUndo`.
 
 `undoableString.canUndo // => true`
 
-Check if redo is possible.
+Check if redo is possible using `canRedo`.
 
 `undoableString.canRedo // => false`
 
 ## Usage with non-primitive values
 
-When using non-primitive values such as objects or arrays be careful that you don't set the value then change it's properties or elements later. The value stored in this class is only the pointer. Therefore every time you set the value you must clone the object or array.
+When using non-primitive values such as objects or arrays be careful that you don't set the value then change it's properties or elements later. The value stored in this class is only the pointer. Therefore every time you set the value you should clone the object or array.
 
 If you want the Undoable class to handle this for you pass `true` as a second parameter to the constructor.
 
