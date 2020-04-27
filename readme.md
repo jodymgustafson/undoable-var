@@ -1,7 +1,6 @@
 # Undoable Wrapper
 
 Implements a wrapper for a variable with support for undo/redo.
-Why? Because I needed undo/redo support and couldn't find one that suited my needs or had adequate documentation.
 
 ## Install
 
