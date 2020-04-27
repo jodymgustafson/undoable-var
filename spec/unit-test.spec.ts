@@ -53,3 +53,32 @@ describe("When initial state set to string", () => {
         expect(undoable.canUndo).toBe(true);
     });
 });
+
+describe("When initial state set to object with clone", () => {
+    it("should have 1 item after pushing a value", () => {
+        const obj = { s: "" };
+        const undoable = new Undoable(obj, true);
+        undoable.value = { s: "a" };
+        expect(undoable.value).toEqual({ s: "a" }, "current should be a");
+        expect(undoable.canRedo).toBe(false);
+        expect(undoable.canUndo).toBe(true);
+        expect(undoable.redo()).toBeUndefined();
+        expect(undoable.undo()).toEqual({ s: "" });
+    });
+
+    it("changing original object shouldn't change value", () => {
+        const obj = { s: "" };
+        const undoable = new Undoable(obj, true);
+        undoable.value = { s: "a" };
+        expect(undoable.value).toEqual({ s: "a" }, "current should be a");
+
+        obj.s = "abc";
+        expect(undoable.value).toEqual({ s: "a" });
+
+        undoable.value = obj;
+        expect(undoable.value).toEqual({ s: "abc" }, "current should be abc");
+
+        expect(undoable.undo()).toEqual({ s: "a" });
+        expect(undoable.redo()).toEqual({ s: "abc" });
+    });
+});

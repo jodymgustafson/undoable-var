@@ -42,6 +42,12 @@ Check if redo is possible.
 
 When using non-primitive values such as objects or arrays be careful that you don't set the value then change it's properties or elements later. The value stored in this class is only the pointer. Therefore every time you set the value you must clone the object or array.
 
+If you want the Undoable class to handle this for you pass `true` as a second parameter to the constructor.
+
+`const undoableArray = new Undoable([1, 2], true)`
+
+Now every time you set the value it will be deep-cloned first (using JSON.stringify()).
+
 ## TypeScript Support
 
 This package includes the type definition file.

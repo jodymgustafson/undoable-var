@@ -2,14 +2,16 @@
  * Implements a variable with undo/redo
  */
 export declare class Undoable<T> {
+    private readonly cloneValue;
     private _current?;
     private undoStack;
     private redoStack;
     /**
      * Creates a new instance with an initial value
      * @param value Initial value
+     * @param cloneValue If true non-primitive values will be deep-cloned whenever the value is set
      */
-    constructor(value?: T);
+    constructor(value?: T, cloneValue?: boolean);
     /**
      * Gets the current value
      */

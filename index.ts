@@ -10,8 +10,9 @@ export class Undoable<T>
     /**
      * Creates a new instance with an initial value
      * @param value Initial value
+     * @param cloneValue If true non-primitive values will be deep-cloned whenever the value is set
      */
-    constructor(value?: T) {
+    constructor(value?: T, private readonly cloneValue = false) {
         if (value !== undefined) {
             this.setValue(value);
         }
@@ -39,7 +40,14 @@ export class Undoable<T>
         if (this._current !== undefined) {
             this.undoStack.push(this._current);
         }
-        this._current = value;
+        if (this.cloneValue && ["string", "number", "boolean"].indexOf(typeof value) < 0) {
+            this._current = JSON.parse(JSON.stringify(value));
+        }
+        else {
+            this._current = value;
+        }
+
+        // Invalidate redo
         this.redoStack = [];
     }
 
