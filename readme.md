@@ -4,7 +4,7 @@ Implements a wrapper for a variable with support for undo/redo.
 
 ## Install
 
-`npm i undoable-var`
+`npm i undoable-wrapper`
 
 ## Usage
 
