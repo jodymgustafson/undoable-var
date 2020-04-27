@@ -1,6 +1,6 @@
 {
   "name": "undoable-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A wrapper for a variable with support for undo/redo",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   ],
   "author": "JM Gustafson",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "@types/jasmine": "^3.5.10",
     "jasmine": "^3.5.0"
   }
